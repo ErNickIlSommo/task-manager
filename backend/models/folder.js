@@ -39,3 +39,5 @@ const folderSchema = mongoose.Schema({
     },
   },
 });
+
+export const folderModel = mongoose.model(folderSchema);

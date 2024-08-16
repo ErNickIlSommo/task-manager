@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-  },
   email: {
     type: String,
     required: true,
@@ -13,19 +9,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-
-  folders: [
-    {
-      folderId: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-      },
-      level: {
-        type: Number,
-        required: true,
-      },
-    },
-  ],
+  folders: [mongoose.Schema.Types.ObjectId],
 });
 
-export const userModel = mongoose.model(userSchema);
+export const userModel = mongoose.model("User", userSchema);

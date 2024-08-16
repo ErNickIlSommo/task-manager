@@ -14,18 +14,21 @@ const taskSchema = mongoose.Schema({
       type: String,
       required: true,
     },
-    levelOfTask: {
-      type: Number,
+    importance: {
+      type: Boolean,
+    },
+    urgency: {
+      type: Boolean,
     },
     expirationDate: {
       type: Date,
     },
   },
+  folder: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
   user: {
-    email: {
-      type: String,
-      required: true,
-    },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
@@ -33,4 +36,4 @@ const taskSchema = mongoose.Schema({
   },
 });
 
-export const taskModel = mongoose.model(taskSchema);
+export const taskModel = mongoose.model("Task", taskSchema);

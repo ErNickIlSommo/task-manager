@@ -6,33 +6,22 @@ const folderSchema = mongoose.Schema({
       type: String,
       required: true,
     },
-    children: [
+    description: {
+      type: String,
+    },
+    states: [
       {
-        itemId: {
-          type: mongoose.Schema.Types.ObjectId,
-          required: true,
-        },
-        itemType: {
+        state: {
           type: String,
           required: true,
+        },
+        color: {
+          type: String,
         },
       },
     ],
   },
-  treeInfo: {
-    parentId: {
-      type: mongoose.Schema.Types.ObjectId,
-    },
-    depth: {
-      type: Number,
-      required: true,
-    },
-  },
   user: {
-    email: {
-      type: String,
-      required: true,
-    },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
@@ -40,4 +29,4 @@ const folderSchema = mongoose.Schema({
   },
 });
 
-export const folderModel = mongoose.model(folderSchema);
+export const folderModel = mongoose.model("Folder", folderSchema);
